@@ -15,6 +15,12 @@ public class ThroughHasMap {
 		data.put("job", "Teacher");
 		
 		given()
-			.
+			.contentType("application/json")
+			.body(data)
+		.when()
+			.post("https://reqres.in/api/users")
+		.then()
+			.statusCode(200);
+			
 	}
 }
