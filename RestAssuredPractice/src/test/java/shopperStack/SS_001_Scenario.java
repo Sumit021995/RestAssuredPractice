@@ -37,7 +37,11 @@ public class SS_001_Scenario {
 
 		        System.out.println("==================");
 		        System.out.println(response);
-//		        JsonPath js=new JsonPath(response); //for parsing Json
+		        JsonPath js=new JsonPath(response); //for parsing Json
+		        String string = js.getString("data.email");
+		        System.out.println("==================");
+		        System.out.println(string);
+		        
 		    }
 		
 
