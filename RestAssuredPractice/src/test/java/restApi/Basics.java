@@ -1,5 +1,5 @@
 package restApi;
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.Assert;
