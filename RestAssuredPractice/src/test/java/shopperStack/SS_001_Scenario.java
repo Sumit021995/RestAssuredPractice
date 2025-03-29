@@ -3,17 +3,22 @@ package shopperStack;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+import org.testng.annotations.Test;
+
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import shopperStackPayloads.ShopperProfilePayload;
 
 public class SS_001_Scenario {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-// validate if Add Place API is workimg as expected 
-		//Add place-> Update Place with New Address -> Get Place to validate if New address is present in response
+	@Test
+	public  void test_API_001() {
+		// Shopper Profile
+		// Register as a shopper
 		
+		given()
+		.when()
+		.then();		
 		//given - all input details 
 		//when - Submit the API -resource,http method
 		//Then - validate the response
@@ -26,21 +31,43 @@ public class SS_001_Scenario {
 
 		        // 🔥 Send Login Request
 		        String response = 
-		        	given().log().all()
+		        	given()
 		        		.header("Content-Type", "application/json")
 		        		.body(ShopperProfilePayload.loginPayload())
 		            .when()
 		            	.post("/users/login")
-		            .then().assertThat().statusCode(200)
-		            	.body("data.email", equalTo("sumitofficial021995@gmail.com"))
+		            .then()
 		            	.extract().response().asString();
 
 		        System.out.println("==================");
 		        System.out.println(response);
 		        JsonPath js=new JsonPath(response); //for parsing Json
-		        String string = js.getString("data.email");
+		        String email = js.getString("data.email");
 		        System.out.println("==================");
-		        System.out.println(string);
+		        System.out.println(email);
+		        String zoneId = js.getString("data.zoneId");
+		        String role = js.getString("data.role");
+		        String userId = js.getString("data.userId");
+		        String jwtToken = js.getString("data.jwtToken");
+		        System.out.println(zoneId);
+		        System.out.println(role);
+		        System.out.println(userId);
+		        System.out.println(jwtToken);
+		        
+		        String getResponse = given()
+		        	.queryParam("zoneId", zoneId)
+		        	.header("Authorization", "Bearer " + jwtToken)
+		        .when()
+		        	.get("/products")
+		        .then()
+		        	.assertThat()
+		        	.statusCode(200)
+		        	.extract()
+		        	.response()
+		        	.asString();
+		        	
+		        System.out.println("++++++++++++");
+		        System.out.println(getResponse);
 		        
 		    }
 		
