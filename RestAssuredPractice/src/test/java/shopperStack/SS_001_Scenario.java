@@ -8,26 +8,30 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import shopperStackPayloads.ShopperProfilePayload;
+import shopperStackPayloads.ShopperRegisterPayload;
 
 public class SS_001_Scenario {
 
 	@Test
 	public  void test_API_001() {
+		
+		// 🔥 Disable SSL Verification
+		RestAssured.useRelaxedHTTPSValidation();
+		
+		// 🔥 Set Base URI
+		RestAssured.baseURI = "https://www.shoppersstack.com/shopping";
 		// Shopper Profile
 		// Register as a shopper
 		
 		given()
+			.header("Content-Type","application/json")
+			.body(ShopperRegisterPayload.shopperRequestPayload())
 		.when()
 		.then();		
 		//given - all input details 
 		//when - Submit the API -resource,http method
 		//Then - validate the response
 		
-		        // 🔥 Disable SSL Verification
-		        RestAssured.useRelaxedHTTPSValidation();
-
-		        // 🔥 Set Base URI
-		        RestAssured.baseURI = "https://www.shoppersstack.com/shopping";
 
 		        // 🔥 Send Login Request
 		        String response = 
