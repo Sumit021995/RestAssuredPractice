@@ -7,8 +7,8 @@ public class ShopperRegisterPayload {
 		 String city="Bangalore";
 		 String country="India";
 		 String state="Karnataka";
-		 String firstName="sumitofficial021995@gmail.com";
-		 String LastName="sumitofficial021995@gmail.com";
+		 String firstName="Sumit";
+		 String LastName="Saurav";
 		 String password="Infocus";
 		 String phone="9818425197";
 		 
