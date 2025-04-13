@@ -13,14 +13,14 @@ public class ShopperRegisterPayload {
 		 String phone="9818425197";
 		 
 		 return "{\r\n"
-		 		+ "  \"city\": \"string\",\r\n"
-		 		+ "  \"country\": \"string\",\r\n"
-		 		+ "  \"email\": \"string\",\r\n"
-		 		+ "  \"firstName\": \"string\",\r\n"
+		 		+ "  \"city\": \""+city+"\",\r\n"
+		 		+ "  \"country\": \""+country+"\",\r\n"
+		 		+ "  \"email\": \""+email+"\",\r\n"
+		 		+ "  \"firstName\": \""+firstName+"\",\r\n"
 		 		+ "  \"gender\": \"MALE\",\r\n"
-		 		+ "  \"lastName\": \"string\",\r\n"
-		 		+ "  \"password\": \"string\",\r\n"
-		 		+ "  \"phone\": 0,\r\n"
+		 		+ "  \"lastName\": \""+LastName+"\",\r\n"
+		 		+ "  \"password\": \""+password+"\",\r\n"
+		 		+ "  \"phone\": ++,\r\n"
 		 		+ "  \"state\": \"string\",\r\n"
 		 		+ "  \"zoneId\": \"string\"\r\n"
 		 		+ "}";
